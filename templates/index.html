@@ -13,10 +13,10 @@
         <input type="submit" class="submit" value="生成画像">
     </form>
 </div>
-<!--下面是用户的展示信息-->
-<!--使用了模版的if语法,如果有才展示这块内容-->
+
     {% if userinfo %}
-        {{userinfo.personas}}
+        <img src="{{userinfo.personas}}" alt="">
+        <h1>{{userinfo}}</h1>
     {% else %}
         <h1>无</h1>
     {% endif %}

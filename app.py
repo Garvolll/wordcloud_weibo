@@ -50,7 +50,7 @@ def get_user_info(uid):
     data = {
         'profile_image_url': json_data['userInfo']['profile_image_url'],  # 获取头像
         'containerid': json_data['tabsInfo']['tabs'][1]['containerid'],  # 此字段在获取博文中需要
-        'userinfo': '<br>'.join(['{}:{}'.format(k, v) for (k, v) in userinfo.items()])
+        'userBaseInfo': '<br>'.join(['{}:{}'.format(k, v) for (k, v) in userinfo.items()])
     }
 
     return data
@@ -117,9 +117,8 @@ def generate_personas(uid, data_list):
     plt.imshow(wc)
     plt.imshow(wc.recolor(color_func=image_color))
     plt.axis("off")  # 关闭图像坐标系
-    dest_img = './static/time/{}.jpeg'.format(uid)
+    dest_img = './static/images/{}.jpg'.format(uid)
     plt.savefig(dest_img)
-    print dest_img
     return dest_img
 
 
@@ -132,7 +131,8 @@ def index():
         posts = get_all_post(uid, userinfo['containerid'])
         dest_img = generate_personas(uid, posts)
         userinfo['personas'] = dest_img
-    return render_template('index.html', **userinfo)
+        print userinfo
+    return render_template('index.html', userinfo=userinfo)
 
 if __name__ == '__main__':
     app.run()
