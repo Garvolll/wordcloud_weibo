@@ -106,18 +106,18 @@ def generate_personas(uid, data_list):
         keywords[i[0]] = i[1]
 
     # 初始化图片
-    image = Image.open('/app/static/images/time.jpg')
+    image = Image.open('./app/static/images/time.jpg')
     graph = np.array(image)
 
     # 生成云图，这里需要注意的是WordCloud默认不支持中文，所以这里需要加载中文黑体字库
-    wc = WordCloud(font_path='/app/static/fonts/simhei.ttf',
+    wc = WordCloud(font_path='./app/static/fonts/simhei.ttf',
                    background_color='white', max_words=300, mask=graph)
     wc.generate_from_frequencies(keywords)
     image_color = ImageColorGenerator(graph)
     plt.imshow(wc)
     plt.imshow(wc.recolor(color_func=image_color))
     plt.axis("off")  # 关闭图像坐标系
-    dest_img = '/app/static/images/{}.jpg'.format(uid)
+    dest_img = './app/static/images/{}.jpg'.format(uid)
     plt.savefig(dest_img)
     return dest_img
 
