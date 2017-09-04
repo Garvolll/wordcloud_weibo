@@ -1,11 +1,11 @@
 #coding:utf-8;
+import matplotlib
+matplotlib.use('Agg')
 
 from flask import Flask
 import requests
 from PIL import Image, ImageSequence
 import numpy as np
-import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, ImageColorGenerator
 import jieba.analyse
