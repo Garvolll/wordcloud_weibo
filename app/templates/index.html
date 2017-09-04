@@ -15,8 +15,9 @@
 </div>
 
     {% if userinfo %}
+        <h1>{{userinfo.userBaseInfo['昵称']}}的微博关键词云</h1>
         <img src="{{userinfo.personas}}" alt="">
-        <h1>{{userinfo}}</h1>
+
     {% else %}
         <h1>无</h1>
     {% endif %}
