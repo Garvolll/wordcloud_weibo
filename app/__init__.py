@@ -5,6 +5,7 @@ import requests
 from PIL import Image, ImageSequence
 import numpy as np
 import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, ImageColorGenerator
 import jieba.analyse
@@ -14,7 +15,6 @@ from collections import OrderedDict
 from flask import render_template, request
 import sys
 
-matplotlib.use('Agg')
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
