@@ -2,24 +2,37 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./static/css/style.css">
     <title>Flask之微博单用户画像生成器</title>
+    <style>
+        .form{
+            width:100%;
+            padding-top:100px;
+        }
+        .form input {
+            display:block;
+            margin:30px auto;
+        }
+        .result{
+            width:100%;
+            text-align:center;
+         }
+
+    </style>
 </head>
 <body>
 <!--提交微博id的表单-->
-<div>
-    <form action="/" method="post" id="search-form">
-        <input type="text" name="uid" class="search" placeholder="微博用户ID">
-        <input type="submit" class="submit" value="生成画像">
-    </form>
-</div>
-
+<form class="form" action="/" method="post" id="search-form">
+    <input type="text" name="uid" class="search" placeholder="微博用户ID">
+    <input type="submit" class="submit" value="生成画像">
+</form>
+<div class="result">
     {% if userinfo %}
-        <h1>{{userinfo.userBaseInfo['昵称']}}的微博关键词云</h1>
-        <img src="{{userinfo.personas}}" alt="">
+    <h1>{{userinfo.userBaseInfo.nickname}}的微博关键词云</h1>
+    <img src="{{userinfo.personas}}" alt="">
 
     {% else %}
-        <h1>无</h1>
+    <!--<h1>无</h1>-->
     {% endif %}
+</div>
 </body>
 </html>
