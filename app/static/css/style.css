@@ -1,0 +1,12 @@
+        .form{
+            width:100%;
+            padding-top:100px;
+        }
+        .form input {
+            display:block;
+            margin:30px auto;
+        }
+        .result{
+            width:100%;
+            text-align:center;
+         }
